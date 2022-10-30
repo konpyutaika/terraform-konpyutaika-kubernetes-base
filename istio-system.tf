@@ -12,8 +12,7 @@ resource "kubernetes_namespace" "istio-system" {
 }
 
 module "istio" {
-#  source = "git::https://gitlab.si.francetelecom.fr/analytics/squidflow/provisioning/terraform-modules/squidflow.istio/?ref=0.0.1"
-  source = "../../istio"
+  source = "git::https://github.com/konpyutaika/terraform-istio.git?ref=1.0.0"
   istio_namespace                 = kubernetes_namespace.istio-system.metadata.0.name
   create_istio_namespace          = false
   istio_operator_namespace        = kubernetes_namespace.system.metadata.0.name
@@ -37,8 +36,7 @@ module "istio" {
 }
 
 module "authservice-oidc" {
-#  source = "git::https://gitlab.si.francetelecom.fr/analytics/squidflow/provisioning/terraform-modules/squidflow.auth/?ref=0.0.1"
-  source = "../../auth"
+  source = "git::https://github.com/konpyutaika/terraform-authservice.git?ref=1.0.0"
 
   authservice   = {
     client_id     = var.authservice_client_id

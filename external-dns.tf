@@ -1,6 +1,5 @@
 module "system_external_dns" {
-#  source = "git::https://gitlab.si.francetelecom.fr/hbx-data-ia/common/terraform-modules/orange.gke-dns/?ref=0.2.0"
-  source = "../../external-dns"
+  source = "git::https://github.com/konpyutaika/terraform-external-dns-k8s.git/?ref=1.0.0"
   # Kubernetes
   kubernetes_cluster_name = var.kubernetes_cluster_name
   watch_istio = true
@@ -17,8 +16,7 @@ module "system_external_dns" {
 }
 
 module "istio_system_external_dns" {
-#  source = "git::https://gitlab.si.francetelecom.fr/hbx-data-ia/common/terraform-modules/orange.gke-dns/?ref=0.2.0"
-  source = "../../external-dns"
+  source = "git::https://github.com/konpyutaika/terraform-external-dns-k8s.git/?ref=1.0.0"
   # Kubernetes
   kubernetes_cluster_name = var.kubernetes_cluster_name
   watch_istio = true
@@ -35,8 +33,7 @@ module "istio_system_external_dns" {
 }
 
 module "instances_external_dns" {
-  #  source = "git::https://gitlab.si.francetelecom.fr/hbx-data-ia/common/terraform-modules/orange.gke-dns/?ref=0.2.0"
-  source = "../../external-dns"
+  source = "git::https://github.com/konpyutaika/terraform-external-dns-k8s.git/?ref=1.0.0"
 
   # Kubernetes
   kubernetes_cluster_name = var.kubernetes_cluster_name

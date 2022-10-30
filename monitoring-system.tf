@@ -39,7 +39,8 @@ resource "kubernetes_config_map" "grafana" {
 
 
 module "monitoring" {
-  source                      = "../../prometheus-grafana"
+  source = "git::https://github.com/konpyutaika/terraform-prometheus-grafana-k8s.git?ref=1.0.0"
+
   monitoring_namespace        = kubernetes_namespace.monitoring_namespace.metadata[0].name
   create_monitoring_namespace = false
 
